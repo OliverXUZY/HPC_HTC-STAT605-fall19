@@ -11,7 +11,7 @@ if [[ $file =~ $pattern ]] ; then
 fi
 
 # pattern="[01]\{2\}"
-pattern=[01]\{2\}
+pattern=[01]\{4\}
 
 
 for i in {1000..2000} ;do
