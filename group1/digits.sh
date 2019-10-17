@@ -1,14 +1,5 @@
 #!/bin/bash
 
-echo "hello world"
-
-# for file in $(ls); do echo "file=$file"; done
-
-file="NetID.cxx"
-pattern="(.*).cxx"
-if [[ $file =~ $pattern ]] ; then
-    echo ${BASH_REMATCH[1]} ${BASH_REMATCH[0]}
-fi
 
 # pattern="[01]\{2\}"
 pattern=[01]\{4\}

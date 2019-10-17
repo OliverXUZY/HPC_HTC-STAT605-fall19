@@ -5,7 +5,9 @@ if [[ $# -lt 1 ]]; then
     exit 0
 fi
 
-[ $# -eq 2 -a -f "$2" ] && file="$2" || file=$(</dev/stdin)
+[ $# -eq 2 -a -f "$2" ] && file="$2" || file=/dev/stdin
+
+# file=/dev/stdin
 
 
 col=$1; # file=$2
