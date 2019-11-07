@@ -1,0 +1,20 @@
+# Run parallel jobs to sort each of the several all.* partial files.
+
+universe = vanilla
+proc=$INT(Process,%02d)
+log = sd-chtc_$(Cluster).log
+error = sd-chtc_$(Cluster)_$(proc).err
+
+executable = ./job1ProcessWord.sh
+arguments = $(proc)
+output = sd-chtc_$(Cluster)_$(proc).out
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = all.$(proc)
+
+request_cpus = 1
+request_memory = 1GB
+request_disk = 1MB
+
+queue 5
