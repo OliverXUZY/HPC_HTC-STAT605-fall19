@@ -1,0 +1,65 @@
+---
+title: "STAT605 hw2"
+author: "Zhuoyan Xu"
+date: "zxu444"
+output: html_document
+---
+Name: Zhuoyan Xu
+Email: zxu444@wisc.edu
+
+# Part 1: Leading summary
+My procedure is measuring the Euclidean distance. First I standetdized the signal and distance in order to let them have same magnitude. I use distance:
+$$
+\text{dist}(A,B) = \frac{1}{n} \sqrt{\sum_{i=1}^n (A_i - B_i)^2}
+$$
+
+to measure the difference between signal and noisy. I checked every shift of the signal, i.e. use signal as a filter on every noisy fit with stride 1, and select the most fitted shift for every noisy measurement. I also select the point in noise version whose and_mask is 0, and select the point in corresponding position in signal flux, then compute the distance and conduct the comparison.
+
+For the extension from hw2, I remove the noisy spectrum containing NA. For each of noisy spectrum,  when the points whose and_mask is 0 is less than 1/2 of the whole points, I delete the corresponding noisy spectrum.
+
+The procedure works well, snd the spec-1353-53083-0579 is in my top 3 matches.
+
+# Part 2: figure of spectra
+Load the data:
+```{r}
+library(ggplot2)
+library('astro')
+
+hwdf = read.csv('hw4best100.csv')
+###
+cB58 = read.fitstab('cB58_Lyman_break.fit')
+files = list.files('download/')
+
+```
+Top1:
+```{r}
+
+noisy = read.fitstab(paste('download/',hwdf$spectrumID[1],sep = ""))
+
+#plot(scale(noisy[,1]), type = 'l');lines(c(rep(0,519),scale(cB58[,2])),col = 'red')
+
+a = scale(noisy[,1])
+b = c(rep(0,hwdf$i[1]-1),scale(cB58[,2]))
+df = data.frame(index = c(seq(length(a)),seq(length(b))), flux = c(a,b), 
+                category = c(rep(as.character(hwdf$spectrumID[1]),length(a)),rep('cB58',length(b))))
+ggplot(df,aes(x = index,y = flux)) + geom_line(aes(color = category))
+
+```
+
+```{r}
+for(i in 1:10)
+{
+  noisy = read.fitstab(paste('download/',hwdf$spectrumID[i],sep = ""))
+
+#plot(scale(noisy[,1]), type = 'l');lines(c(rep(0,519),scale(cB58[,2])),col = 'red')
+
+a = scale(noisy[,1])
+b = c(rep(0,hwdf$i[i]-1),scale(cB58[,2]))
+df = data.frame(index = c(seq(length(a)),seq(length(b))), flux = c(a,b), 
+                category = c(rep(as.character(hwdf$spectrumID[1]),length(a)),rep('cB58',length(b))))
+ggplot(df,aes(x = index,y = flux)) + geom_line(aes(color = category))
+}
+```
+
+
+
