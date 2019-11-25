@@ -15,8 +15,8 @@ library('astro')
 cB58 = read.fitstab(template)
 #noisy = read.fitstab('data/spec-7424-57160-0977.fits')
 
-obs = 3  ##  for test
-files = list.files(directory)[1:3]
+obs = 1000  ##  for test
+files = list.files(directory)
 
 ext2 = function(fil){
   sig_flux = cB58[,2]
