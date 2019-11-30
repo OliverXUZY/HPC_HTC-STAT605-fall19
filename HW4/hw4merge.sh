@@ -8,7 +8,7 @@ mkdir res
 
 mv *.csv res
 
-num_file=5
+num_file=2459
 
 # sort -m *.csv | tail -n +$num_file | head -101
 

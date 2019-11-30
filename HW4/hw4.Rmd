@@ -1,5 +1,5 @@
 ---
-title: "STAT605 hw2"
+title: "STAT605 hw4"
 author: "Zhuoyan Xu"
 date: "zxu444"
 output: html_document
@@ -17,7 +17,7 @@ to measure the difference between signal and noisy. I checked every shift of the
 
 For the extension from hw2, I remove the noisy spectrum containing NA. For each of noisy spectrum,  when the points whose and_mask is 0 is less than 1/2 of the whole points, I delete the corresponding noisy spectrum.
 
-The procedure works well, snd the spec-1353-53083-0579 is in my top 3 matches.
+The procedure works well.
 
 # Part 2: figure of spectra
 Load the data:
@@ -46,20 +46,163 @@ ggplot(df,aes(x = index,y = flux)) + geom_line(aes(color = category))
 
 ```
 
+Top2:
 ```{r}
-for(i in 1:10)
-{
-  noisy = read.fitstab(paste('download/',hwdf$spectrumID[i],sep = ""))
+
+noisy = read.fitstab(paste('download/',hwdf$spectrumID[2],sep = ""))
 
 #plot(scale(noisy[,1]), type = 'l');lines(c(rep(0,519),scale(cB58[,2])),col = 'red')
 
 a = scale(noisy[,1])
-b = c(rep(0,hwdf$i[i]-1),scale(cB58[,2]))
+b = c(rep(0,hwdf$i[1]-1),scale(cB58[,2]))
 df = data.frame(index = c(seq(length(a)),seq(length(b))), flux = c(a,b), 
                 category = c(rep(as.character(hwdf$spectrumID[1]),length(a)),rep('cB58',length(b))))
 ggplot(df,aes(x = index,y = flux)) + geom_line(aes(color = category))
-}
+
 ```
+
+Top3:
+```{r}
+
+noisy = read.fitstab(paste('download/',hwdf$spectrumID[3],sep = ""))
+
+#plot(scale(noisy[,1]), type = 'l');lines(c(rep(0,519),scale(cB58[,2])),col = 'red')
+
+a = scale(noisy[,1])
+b = c(rep(0,hwdf$i[1]-1),scale(cB58[,2]))
+df = data.frame(index = c(seq(length(a)),seq(length(b))), flux = c(a,b), 
+                category = c(rep(as.character(hwdf$spectrumID[1]),length(a)),rep('cB58',length(b))))
+ggplot(df,aes(x = index,y = flux)) + geom_line(aes(color = category))
+
+```
+
+Top4:
+```{r}
+
+noisy = read.fitstab(paste('download/',hwdf$spectrumID[4],sep = ""))
+
+#plot(scale(noisy[,1]), type = 'l');lines(c(rep(0,519),scale(cB58[,2])),col = 'red')
+
+a = scale(noisy[,1])
+b = c(rep(0,hwdf$i[1]-1),scale(cB58[,2]))
+df = data.frame(index = c(seq(length(a)),seq(length(b))), flux = c(a,b), 
+                category = c(rep(as.character(hwdf$spectrumID[1]),length(a)),rep('cB58',length(b))))
+ggplot(df,aes(x = index,y = flux)) + geom_line(aes(color = category))
+
+```
+
+
+Top5:
+```{r}
+
+noisy = read.fitstab(paste('download/',hwdf$spectrumID[5],sep = ""))
+
+#plot(scale(noisy[,1]), type = 'l');lines(c(rep(0,519),scale(cB58[,2])),col = 'red')
+
+a = scale(noisy[,1])
+b = c(rep(0,hwdf$i[1]-1),scale(cB58[,2]))
+df = data.frame(index = c(seq(length(a)),seq(length(b))), flux = c(a,b), 
+                category = c(rep(as.character(hwdf$spectrumID[1]),length(a)),rep('cB58',length(b))))
+ggplot(df,aes(x = index,y = flux)) + geom_line(aes(color = category))
+
+```
+
+
+Top6:
+```{r}
+
+noisy = read.fitstab(paste('download/',hwdf$spectrumID[6],sep = ""))
+
+#plot(scale(noisy[,1]), type = 'l');lines(c(rep(0,519),scale(cB58[,2])),col = 'red')
+
+a = scale(noisy[,1])
+b = c(rep(0,hwdf$i[1]-1),scale(cB58[,2]))
+df = data.frame(index = c(seq(length(a)),seq(length(b))), flux = c(a,b), 
+                category = c(rep(as.character(hwdf$spectrumID[1]),length(a)),rep('cB58',length(b))))
+ggplot(df,aes(x = index,y = flux)) + geom_line(aes(color = category))
+
+```
+
+
+Top7:
+```{r}
+
+noisy = read.fitstab(paste('download/',hwdf$spectrumID[7],sep = ""))
+
+#plot(scale(noisy[,1]), type = 'l');lines(c(rep(0,519),scale(cB58[,2])),col = 'red')
+
+a = scale(noisy[,1])
+b = c(rep(0,hwdf$i[1]-1),scale(cB58[,2]))
+df = data.frame(index = c(seq(length(a)),seq(length(b))), flux = c(a,b), 
+                category = c(rep(as.character(hwdf$spectrumID[1]),length(a)),rep('cB58',length(b))))
+ggplot(df,aes(x = index,y = flux)) + geom_line(aes(color = category))
+
+```
+
+
+Top8:
+```{r}
+
+noisy = read.fitstab(paste('download/',hwdf$spectrumID[8],sep = ""))
+
+#plot(scale(noisy[,1]), type = 'l');lines(c(rep(0,519),scale(cB58[,2])),col = 'red')
+
+a = scale(noisy[,1])
+b = c(rep(0,hwdf$i[1]-1),scale(cB58[,2]))
+df = data.frame(index = c(seq(length(a)),seq(length(b))), flux = c(a,b), 
+                category = c(rep(as.character(hwdf$spectrumID[1]),length(a)),rep('cB58',length(b))))
+ggplot(df,aes(x = index,y = flux)) + geom_line(aes(color = category))
+
+```
+
+
+Top9:
+```{r}
+
+noisy = read.fitstab(paste('download/',hwdf$spectrumID[9],sep = ""))
+
+#plot(scale(noisy[,1]), type = 'l');lines(c(rep(0,519),scale(cB58[,2])),col = 'red')
+
+a = scale(noisy[,1])
+b = c(rep(0,hwdf$i[1]-1),scale(cB58[,2]))
+df = data.frame(index = c(seq(length(a)),seq(length(b))), flux = c(a,b), 
+                category = c(rep(as.character(hwdf$spectrumID[1]),length(a)),rep('cB58',length(b))))
+ggplot(df,aes(x = index,y = flux)) + geom_line(aes(color = category))
+
+```
+
+
+Top10:
+```{r}
+
+noisy = read.fitstab(paste('download/',hwdf$spectrumID[10],sep = ""))
+
+#plot(scale(noisy[,1]), type = 'l');lines(c(rep(0,519),scale(cB58[,2])),col = 'red')
+
+a = scale(noisy[,1])
+b = c(rep(0,hwdf$i[1]-1),scale(cB58[,2]))
+df = data.frame(index = c(seq(length(a)),seq(length(b))), flux = c(a,b), 
+                category = c(rep(as.character(hwdf$spectrumID[1]),length(a)),rep('cB58',length(b))))
+ggplot(df,aes(x = index,y = flux)) + geom_line(aes(color = category))
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
